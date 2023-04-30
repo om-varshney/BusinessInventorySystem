@@ -1,7 +1,7 @@
 package Helpers;
 
 import de.vandermeer.asciitable.AsciiTable;
-import de.vandermeer.asciitable.CWC_LongestWordMin;
+import de.vandermeer.asciitable.CWC_LongestLine;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -39,7 +39,9 @@ public abstract class Menu {
             at.addRule();
             count++;
         }
-        at.getRenderer().setCWC(new CWC_LongestWordMin(15));
+        CWC_LongestLine cwc = new CWC_LongestLine();
+        at.getRenderer().setCWC(cwc);
+        cwc.add(0, 15);
         return at.render();
     }
 }
