@@ -1,13 +1,25 @@
 package Product;
 
 public class Footwear extends Product {
-    private boolean gender;
-    private int size;
-    private String brand;
-    Footwear(int id, double price, int quantity, boolean gender, int size, String brand) {
-        super(id, price, quantity);
+    private final String gender;
+    private final String size;
+    private final String brand;
+    Footwear(int id, double price, String gender, String size, String brand) {
+        super(id, price);
         this.gender = gender;
         this.size = size;
         this.brand = brand;
+    }
+
+    public String isGender() {
+        return gender;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public String getBrand() {
+        return brand;
     }
 }

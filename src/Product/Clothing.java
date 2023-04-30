@@ -1,11 +1,19 @@
 package Product;
 
 public class Clothing extends Product {
-    private boolean gender;
-    private int size;
-    Clothing(int id, double price, int quantity, boolean gender, int size) {
-        super(id, price, quantity);
+    private final String gender;
+    private final String size;
+    Clothing(int id, double price, String gender, String size) {
+        super(id, price);
         this.gender = gender;
         this.size = size;
+    }
+
+    public String isGender() {
+        return gender;
+    }
+
+    public String getSize() {
+        return size;
     }
 }

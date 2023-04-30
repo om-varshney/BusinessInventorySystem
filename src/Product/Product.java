@@ -9,12 +9,10 @@ import java.util.Objects;
 public abstract class Product {
     private final int productID;
     private final double productPrice;
-    private final int productQuantity;
 
-    Product(int id, double price, int quantity) {
+    Product(int id, double price) {
         this.productID = id;
         this.productPrice = price;
-        this.productQuantity = quantity;
     }
 
     public static void displayAllProducts() {
