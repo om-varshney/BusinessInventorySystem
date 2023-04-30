@@ -50,4 +50,12 @@ public abstract class Product {
             System.out.println(cnf.getMessage());
         }
     }
+
+    public int getProductID() {
+        return productID;
+    }
+
+    public double getProductPrice() {
+        return productPrice;
+    }
 }

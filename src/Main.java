@@ -1,13 +1,27 @@
+import Helpers.AdminMenu;
 import Helpers.LoginMenu;
+import Helpers.MainMenu;
 import Product.Product;
 
 public class Main {
     public static void main(String[] args) {
-//        System.out.println("Hello, world!");
-//        Product.displayAllProducts();
+        Product.displayAllProducts();
         LoginMenu lm = new LoginMenu();
         System.out.println(lm);
-        int choice = lm.getChoice();
-        System.out.println(choice);
+//        int lmChoice = lm.getChoice();
+//        System.out.println(lmChoice);
+
+        MainMenu mm = new MainMenu();
+        System.out.println(mm);
+//        int mmChoice = mm.getChoice();
+//        System.out.println(mmChoice);
+
+        AdminMenu am = new AdminMenu();
+        System.out.println(am);
+//        int amChoice = am.getChoice();
+//        System.out.println(amChoice);
+
+        int id = User.login("Ishaan", "password789");
+        System.out.println("userID " + id);
     }
 }

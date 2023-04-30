@@ -23,7 +23,7 @@ public class Order {
         this.fetchProducts();
         double bill = 0;
         for (Product product: this.products) {
-            bill += billingService.payableAmount();
+            bill += billingService.payableAmount(product);
         }
         return bill;
     }

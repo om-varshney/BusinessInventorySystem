@@ -1,6 +1,7 @@
 package Billing;
 
 import Interfaces.Billing;
+import Product.Product;
 
 public class COD implements Billing {
     private double mrp;
@@ -18,7 +19,7 @@ public class COD implements Billing {
     }
 
     @Override
-    public double payableAmount() {
+    public double payableAmount(Product product) {
         return 0;
     }
 }

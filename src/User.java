@@ -8,7 +8,7 @@ public class User {
     private final String emailId;
     private final int distanceFromWarehouse;
 
-    public static boolean login(String userName, String password) {
+    public static int login(String userName, String password) {
         Connection connection;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -20,20 +20,22 @@ public class User {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM users");
             String username, passwd;
+            int userID;
             while (resultSet.next()) {
                 username = resultSet.getString("username").trim();
                 passwd = resultSet.getString("password");
+                userID = resultSet.getInt("userID");
                 if (username.equals(userName) && passwd.equals(password)) {
                     resultSet.close();
                     statement.close();
                     connection.close();
-                    return true;
+                    return userID;
                 }
             }
         } catch (ClassNotFoundException | SQLException cnf) {
             System.out.println(cnf.getMessage());
         }
-        return false;
+        return 0;
     }
 
     public boolean signup() {

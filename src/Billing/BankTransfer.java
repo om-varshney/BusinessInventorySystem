@@ -1,6 +1,7 @@
 package Billing;
 
 import Interfaces.Billing;
+import Product.Product;
 
 public class BankTransfer implements Billing {
     private long accountNumber;
@@ -21,7 +22,7 @@ public class BankTransfer implements Billing {
     }
 
     @Override
-    public double payableAmount() {
+    public double payableAmount(Product product) {
         return 0;
     }
 }

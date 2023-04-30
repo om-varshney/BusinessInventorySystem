@@ -1,6 +1,7 @@
 package Billing;
 
 import Interfaces.Billing;
+import Product.Product;
 
 public class CreditCard implements Billing {
     private long cardNumber;
@@ -18,7 +19,7 @@ public class CreditCard implements Billing {
     }
 
     @Override
-    public double payableAmount() {
+    public double payableAmount(Product product) {
         return 0;
     }
 }
