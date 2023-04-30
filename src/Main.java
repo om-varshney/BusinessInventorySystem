@@ -1,7 +1,12 @@
+import Billing.BankTransfer;
+import Billing.CreditCard;
 import Helpers.Menus.AdminMenu;
 import Helpers.Menus.LoginMenu;
 import Helpers.Menus.MainMenu;
 import Product.Product;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
@@ -23,5 +28,12 @@ public class Main {
 
         int id = User.login("Ishaan", "password789");
         System.out.println("userID " + id);
+
+        Order order = new Order(
+                new ArrayList<Integer>(Arrays.asList(22, 34, 12)),
+                new BankTransfer("0112345678", "SBIN0005943"),
+                id
+        );
+        System.out.println("Your Bill for this order is: " + order.calculateBill());
     }
 }
