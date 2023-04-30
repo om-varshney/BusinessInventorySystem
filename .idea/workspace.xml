@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="622b2e2d-2fcd-4b77-b5e8-1d5a9300f7b6" name="Changes" comment="User Defined Exceptions Created.">
-      <change afterPath="$PROJECT_DIR$/src/Exceptions/UnauthenticatedUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shop.java" afterDir="false" />
+    <list default="true" id="622b2e2d-2fcd-4b77-b5e8-1d5a9300f7b6" name="Changes" comment="Login and Signup Created for Users">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interfaces/Product.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Product/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Product/Product.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,8 +52,8 @@
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "C:\\Users\\hp\\AppData\\Roaming\\npm\\node_modules\\prettier",
     "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "reference.settings.ide.settings.uml",
     "vue.rearranger.settings.migration": "true"
   },
@@ -94,7 +91,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1682784317020</updated>
-      <workItem from="1682784318025" duration="16407000" />
+      <workItem from="1682784318025" duration="17760000" />
     </task>
     <task id="LOCAL-00001" summary="Java Project Init">
       <created>1682784737512</created>
@@ -152,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682834251597</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Login and Signup Created for Users">
+      <created>1682849309481</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1682849309481</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,7 +183,8 @@
     <MESSAGE value="User Stub Created." />
     <MESSAGE value="Order Stub Created." />
     <MESSAGE value="User Defined Exceptions Created." />
-    <option name="LAST_COMMIT_MESSAGE" value="User Defined Exceptions Created." />
+    <MESSAGE value="Login and Signup Created for Users" />
+    <option name="LAST_COMMIT_MESSAGE" value="Login and Signup Created for Users" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
