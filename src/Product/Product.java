@@ -46,7 +46,6 @@ public abstract class Product {
             }
             at.getRenderer().setCWC(new CWC_LongestWordMin(15));
             System.out.println(at.render());
-            System.out.println(at.render());
         } catch (ClassNotFoundException | SQLException cnf) {
             System.out.println(cnf.getMessage());
         }
