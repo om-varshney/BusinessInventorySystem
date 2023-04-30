@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="622b2e2d-2fcd-4b77-b5e8-1d5a9300f7b6" name="Changes" comment="ASCII Tables added.">
+    <list default="true" id="622b2e2d-2fcd-4b77-b5e8-1d5a9300f7b6" name="Changes" comment="Abstract Product.java connected to DB.">
+      <change afterPath="$PROJECT_DIR$/src/Exceptions/ProductUnavailable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Product/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Product/Product.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +99,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1682784317020</updated>
-      <workItem from="1682784318025" duration="19979000" />
+      <workItem from="1682784318025" duration="20480000" />
     </task>
     <task id="LOCAL-00001" summary="Java Project Init">
       <created>1682784737512</created>
@@ -172,7 +171,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682850394275</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Abstract Product.java connected to DB.">
+      <created>1682852664865</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1682852664865</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,7 +207,8 @@
     <MESSAGE value="User Defined Exceptions Created." />
     <MESSAGE value="Login and Signup Created for Users" />
     <MESSAGE value="ASCII Tables added." />
-    <option name="LAST_COMMIT_MESSAGE" value="ASCII Tables added." />
+    <MESSAGE value="Abstract Product.java connected to DB." />
+    <option name="LAST_COMMIT_MESSAGE" value="Abstract Product.java connected to DB." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
