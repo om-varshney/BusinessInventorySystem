@@ -1,6 +1,6 @@
-import Helpers.AdminMenu;
-import Helpers.LoginMenu;
-import Helpers.MainMenu;
+import Helpers.Menus.AdminMenu;
+import Helpers.Menus.LoginMenu;
+import Helpers.Menus.MainMenu;
 import Product.Product;
 
 public class Main {

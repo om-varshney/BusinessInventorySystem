@@ -10,4 +10,10 @@ public class Electronics extends Product {
     public String getSubCategory() {
         return subCategory;
     }
+    public double getShippingCost() {
+        return 0.15;
+    }
+    public double getTaxPercentage() {
+        return 0.1;
+    }
 }

@@ -1,4 +1,4 @@
-package Helpers;
+package Helpers.Menus;
 
 public class LoginMenu extends Menu {
     public LoginMenu() {

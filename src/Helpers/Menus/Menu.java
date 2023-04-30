@@ -1,4 +1,4 @@
-package Helpers;
+package Helpers.Menus;
 
 import de.vandermeer.asciitable.AsciiTable;
 import de.vandermeer.asciitable.CWC_LongestLine;

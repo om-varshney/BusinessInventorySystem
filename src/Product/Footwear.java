@@ -22,4 +22,10 @@ public class Footwear extends Product {
     public String getBrand() {
         return brand;
     }
+    public double getShippingCost() {
+        return 0.25;
+    }
+    public double getTaxPercentage() {
+        return 0.1;
+    }
 }

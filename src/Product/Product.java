@@ -58,4 +58,7 @@ public abstract class Product {
     public double getProductPrice() {
         return productPrice;
     }
+
+    public abstract double getShippingCost();
+    public abstract double getTaxPercentage();
 }

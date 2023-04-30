@@ -10,4 +10,10 @@ public class Cosmetics extends Product {
     public String getBrand() {
         return brand;
     }
+    public double getShippingCost() {
+        return 0.2;
+    }
+    public double getTaxPercentage() {
+        return 0.15;
+    }
 }

@@ -11,18 +11,11 @@ public class BankTransfer implements Billing {
         this.accountNumber = accountNumber;
         this.IFSCCode = IFSCCode;
     }
-    @Override
-    public double calculateShippingCost() {
-        return 0;
-    }
-
-    @Override
-    public double calculateTaxes() {
-        return 0;
-    }
 
     @Override
     public double payableAmount(Product product) {
-        return 0;
+        // No delivery charges for Bank Transfer.
+        double price = product.getProductPrice();
+        return price + price * product.getTaxPercentage();
     }
 }
