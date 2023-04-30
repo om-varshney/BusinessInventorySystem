@@ -30,7 +30,7 @@ public class Main {
         System.out.println("userID " + id);
 
         Order order = new Order(
-                new ArrayList<Integer>(Arrays.asList(22, 34, 12)),
+                new ArrayList<Integer>(Arrays.asList(25, 31, 19)),
                 new BankTransfer("0112345678", "SBIN0005943"),
                 id
         );

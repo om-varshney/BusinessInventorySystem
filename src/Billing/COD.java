@@ -17,17 +17,17 @@ public class COD implements Billing {
     }
 
     @Override
-    public String getCardNumber() {
+    public String cardNumber() {
         return null;
     }
 
     @Override
-    public String getAccountNumber() {
+    public String accountNumber() {
         return null;
     }
 
     @Override
-    public String getIFSCCode() {
+    public String IFSCCode() {
         return null;
     }
 }

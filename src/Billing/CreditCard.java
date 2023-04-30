@@ -3,12 +3,7 @@ package Billing;
 import Interfaces.Billing;
 import Product.Product;
 
-public class CreditCard implements Billing {
-    private final String cardNumber;
-
-    public CreditCard(String cardNumber) {
-        this.cardNumber = cardNumber;
-    }
+public record CreditCard(String cardNumber) implements Billing {
     @Override
     public double payableAmount(Product product) {
         // Discount is applicable for credit cards.
@@ -22,17 +17,13 @@ public class CreditCard implements Billing {
         return "CC";
     }
 
-    public String getCardNumber() {
-        return cardNumber;
-    }
-
     @Override
-    public String getAccountNumber() {
+    public String accountNumber() {
         return null;
     }
 
     @Override
-    public String getIFSCCode() {
+    public String IFSCCode() {
         return null;
     }
 }

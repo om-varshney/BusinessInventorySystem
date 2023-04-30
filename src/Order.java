@@ -1,5 +1,4 @@
 import Interfaces.Billing;
-import Billing.*;
 import Product.*;
 
 import java.util.ArrayList;
@@ -45,9 +44,9 @@ public class Order {
             pstmt.setInt(2, this.userID);
             pstmt.setInt(3, productID);
             pstmt.setString(4, this.billingService.getName());
-            pstmt.setString(5, this.billingService.getCardNumber());
-            pstmt.setString(6, this.billingService.getAccountNumber());
-            pstmt.setString(7, this.billingService.getIFSCCode());
+            pstmt.setString(5, this.billingService.cardNumber());
+            pstmt.setString(6, this.billingService.accountNumber());
+            pstmt.setString(7, this.billingService.IFSCCode());
             pstmt.execute();
             // Update the products table once order is placed.
             PreparedStatement updateQuantity = connection.prepareStatement("""

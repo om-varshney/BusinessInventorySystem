@@ -3,13 +3,7 @@ package Billing;
 import Interfaces.Billing;
 import Product.Product;
 
-public class BankTransfer implements Billing {
-    private final String accountNumber;
-    private final String IFSCCode;
-    public BankTransfer(String accountNumber, String IFSCCode) {
-        this.accountNumber = accountNumber;
-        this.IFSCCode = IFSCCode;
-    }
+public record BankTransfer(String accountNumber, String IFSCCode) implements Billing {
 
     @Override
     public double payableAmount(Product product) {
@@ -24,15 +18,7 @@ public class BankTransfer implements Billing {
     }
 
     @Override
-    public String getCardNumber() {
+    public String cardNumber() {
         return null;
-    }
-
-    public String getAccountNumber() {
-        return accountNumber;
-    }
-
-    public String getIFSCCode() {
-        return IFSCCode;
     }
 }
