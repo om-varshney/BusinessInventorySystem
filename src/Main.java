@@ -1,3 +1,4 @@
+import Admin.AdminView;
 import Billing.BankTransfer;
 import Billing.CreditCard;
 import Helpers.Menus.AdminMenu;
@@ -29,11 +30,14 @@ public class Main {
         int id = User.login("Ishaan", "password789");
         System.out.println("userID " + id);
 
-        Order order = new Order(
-                new ArrayList<Integer>(Arrays.asList(25, 31, 19)),
-                new BankTransfer("0112345678", "SBIN0005943"),
-                id
-        );
-        System.out.println("Your Bill for this order is: " + order.calculateBill());
+//        Order order = new Order(
+//                new ArrayList<Integer>(Arrays.asList(25, 31, 19)),
+//                new BankTransfer("0112345678", "SBIN0005943"),
+//                id
+//        );
+//        System.out.println("Your Bill for this order is: " + order.calculateBill());
+        AdminView av = new AdminView();
+        av.viewOrders();
+        av.viewCriticalProducts();
     }
 }
