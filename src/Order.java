@@ -1,12 +1,30 @@
-import Product.Product;
+import Interfaces.Billing;
+import Product.*;
 
 import java.util.ArrayList;
 
 public class Order {
-    private int orderID;
-    private ArrayList<Product> products;
+    private final ArrayList<Integer> orders;
+    private final Billing billingService;
+    private final ArrayList<Product> products = new ArrayList<>();
+
+    public Order(ArrayList<Integer> orders, Billing billingService) {
+        this.orders = orders;
+        this.billingService = billingService;
+    }
+
+    public void fetchProducts() {
+        for (int orderID: this.orders) {
+            this.products.add(GetProduct.getProduct(orderID));
+        }
+    }
 
     public double calculateBill() {
-        return 0;
+        this.fetchProducts();
+        double bill = 0;
+        for (Product product: this.products) {
+            bill += billingService.payableAmount();
+        }
+        return bill;
     }
 }
