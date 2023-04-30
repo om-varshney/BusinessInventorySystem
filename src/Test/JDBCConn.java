@@ -9,7 +9,8 @@ public class JDBCConn {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/scirev",
-                    "root", "om2516"
+                    "root",
+                    "om2516"
             );
             Statement statement;
             statement = connection.createStatement();
