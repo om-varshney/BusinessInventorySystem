@@ -113,6 +113,12 @@ public class Shop {
                 }
                 case 4 -> {
                     System.out.println("Welcome to Admin View");
+                    System.out.print("Enter Admin Password: ");
+                    String password = sc.nextLine();
+                    if (!password.equals("Admin123")) {
+                        System.out.println("Sorry You do not have Clearance");
+                        break;
+                    }
                     System.out.println(am);
                     int amChoice = am.getChoice();
                     switch (amChoice) {
