@@ -4,8 +4,8 @@ public class Clothing extends Product {
     private final String gender;
     private final String size;
 
-    Clothing(int id, double price, String gender, String size) {
-        super(id, price);
+    public Clothing(int id, double price, String name, String gender, String size) {
+        super(id, price, name);
         this.gender = gender;
         this.size = size;
     }

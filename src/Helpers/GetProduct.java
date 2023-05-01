@@ -1,6 +1,10 @@
-package Product;
+package Helpers;
 
-import org.apache.commons.lang3.ObjectUtils;
+import Product.Product;
+import Product.Clothing;
+import Product.Cosmetics;
+import Product.Electronics;
+import Product.Footwear;
 
 import java.sql.*;
 
@@ -25,6 +29,7 @@ public class GetProduct {
                     return new Electronics(
                             productID,
                             rs.getDouble("price"),
+                            rs.getString("name"),
                             rs.getString("subcategory")
                     );
                 }
@@ -32,6 +37,7 @@ public class GetProduct {
                     return new Cosmetics(
                             productID,
                             rs.getDouble("price"),
+                            rs.getString("name"),
                             rs.getString("brand")
                     );
                 }
@@ -39,6 +45,7 @@ public class GetProduct {
                     return new Clothing(
                             productID,
                             rs.getDouble("price"),
+                            rs.getString("name"),
                             rs.getString("gender"),
                             rs.getString("size")
                     );
@@ -47,6 +54,7 @@ public class GetProduct {
                     return new Footwear(
                             productID,
                             rs.getDouble("price"),
+                            rs.getString("name"),
                             rs.getString("gender"),
                             rs.getString("size"),
                             rs.getString("brand")

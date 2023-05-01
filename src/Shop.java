@@ -1,4 +1,5 @@
 import Admin.AdminView;
+import Helpers.Billing.BillWriter;
 import Helpers.Menus.AdminMenu;
 import Helpers.Menus.BillingMenu;
 import Helpers.Menus.LoginMenu;
@@ -16,6 +17,7 @@ public class Shop {
     private final LoginMenu lm = new LoginMenu();
     private final MainMenu mm = new MainMenu();
     private final BillingMenu bm = new BillingMenu();
+    private BillWriter bw;
     private final AdminMenu am = new AdminMenu();
     private final AdminView av = new AdminView();
     private final Scanner sc = new Scanner(System.in);
@@ -108,7 +110,9 @@ public class Shop {
                                 billingMethod,
                                 currentLoggedUser
                         );
-                        System.out.println("Your Bill for this order is: " + order.calculateBill());
+                        double bill = order.calculateBill();
+                        bw = new BillWriter(userID, intList, bill, billingMethod);
+                        System.out.println(bw);
                     }
                 }
                 case 4 -> {

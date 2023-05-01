@@ -2,8 +2,8 @@ package Product;
 
 public class Cosmetics extends Product {
     private final String brand;
-    Cosmetics(int id, double price, String brand) {
-        super(id, price);
+    public Cosmetics(int id, double price, String name, String brand) {
+        super(id, price, name);
         this.brand = brand;
     }
 

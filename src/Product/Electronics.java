@@ -2,8 +2,8 @@ package Product;
 
 public class Electronics extends Product {
     private final String subCategory;
-    Electronics(int id, double price, String subCategory) {
-        super(id, price);
+    public Electronics(int id, double price, String name, String subCategory) {
+        super(id, price, name);
         this.subCategory = subCategory;
     }
 

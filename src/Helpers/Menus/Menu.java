@@ -27,7 +27,7 @@ public abstract class Menu {
             try {
                 choice = sc.nextInt();
             } catch (InputMismatchException im) {
-                System.out.println(PrettyPrint.ANSI_RED_BACKGROUND + "Enter valid Choice!" + PrettyPrint.ANSI_RESET);
+                System.out.println(PrettyPrint.printRedBack("Enter valid Choice!"));
                 // Consume invalid input from the scanner buffer
                 sc.nextLine();
                 continue;
@@ -35,7 +35,7 @@ public abstract class Menu {
             if (choice > 0 && choice <= this.getOptions().size()) {
                 return choice;
             } else {
-                System.out.println(PrettyPrint.ANSI_RED_BACKGROUND + "Enter valid Choice!" + PrettyPrint.ANSI_RESET);
+                System.out.println(PrettyPrint.printRedBack("Enter valid Choice!"));
             }
         }
     }
