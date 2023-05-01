@@ -20,7 +20,7 @@ public abstract class Menu {
     public int getChoice() {
         Scanner sc = new Scanner(System.in);
         while (true) {
-            System.out.println("Enter your Choice: ");
+            System.out.print("Enter your Choice: ");
             int choice = sc.nextInt();
             if (choice > 0 && choice <= this.getOptions().size()) {
                 return choice;

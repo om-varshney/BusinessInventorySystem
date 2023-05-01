@@ -77,5 +77,4 @@ public class AdminView {
             System.out.println(cnf.getMessage());
         }
     }
-
 }

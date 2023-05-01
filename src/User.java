@@ -35,10 +35,11 @@ public class User {
         } catch (ClassNotFoundException | SQLException cnf) {
             System.out.println(cnf.getMessage());
         }
+        System.out.println("Login Unsuccessful!");
         return 0;
     }
 
-    public boolean signup() {
+    public int signup() {
         Connection connection;
         Statement statement;
         try {
@@ -64,12 +65,13 @@ public class User {
             pstmt.setInt(6, this.distanceFromWarehouse);
             int rows = pstmt.executeUpdate();
             if (rows > 0) {
-                return true;
+                return count + 1;
             }
         } catch (ClassNotFoundException | SQLException cnf) {
             System.out.println(cnf.getMessage());
         }
-        return false;
+        System.out.println("Signup Unsuccessful!");
+        return 0;
     }
     public User(String userName, String password, String phoneNumber, String emailId, int distanceFromWarehouse) {
         this.userName = userName;
