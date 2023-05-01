@@ -1,4 +1,3 @@
-import Exceptions.UnauthenticatedUser;
 import java.sql.*;
 
 public class User {

@@ -1,9 +1,9 @@
 package Exceptions;
 
-public class InvalidAccountNumber extends Exception {
+public class InvalidIFSCCodeException extends Exception {
     private final String errorMessage;
 
-    public InvalidAccountNumber(String errorMessage) {
+    public InvalidIFSCCodeException(String errorMessage) {
         super(errorMessage);
         this.errorMessage = errorMessage;
     }

@@ -1,9 +1,9 @@
 package Exceptions;
 
-public class ProductUnavailable extends Exception {
+public class InvalidAccountNumberException extends Exception {
     private final String errorMessage;
 
-    public ProductUnavailable(String errorMessage) {
+    public InvalidAccountNumberException(String errorMessage) {
         super(errorMessage);
         this.errorMessage = errorMessage;
     }

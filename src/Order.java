@@ -1,3 +1,4 @@
+import Exceptions.ProductUnavailableException;
 import Helpers.GetProduct;
 import Interfaces.Billing;
 import Product.*;
@@ -18,8 +19,14 @@ public class Order {
     }
 
     public void fetchProducts() {
+        Product currentProduct;
         for (int orderID: this.orders) {
-            this.products.add(GetProduct.getProduct(orderID));
+            try {
+                currentProduct = GetProduct.getProduct(orderID);
+                this.products.add(currentProduct);
+            } catch (ProductUnavailableException pue) {
+                System.out.println("Product with ID " + orderID + " Unavailable. Taking Next");
+            }
         }
     }
 

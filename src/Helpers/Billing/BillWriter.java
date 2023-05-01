@@ -1,5 +1,7 @@
 package Helpers.Billing;
 
+import Exceptions.ProductUnavailableException;
+import Helpers.DateTimeHelper;
 import Helpers.GetProduct;
 import Interfaces.Billing;
 import Product.Product;
@@ -8,6 +10,7 @@ import de.vandermeer.asciitable.AsciiTable;
 import de.vandermeer.skb.interfaces.transformers.textformat.TextAlignment;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Objects;
 
 public class BillWriter {
@@ -22,16 +25,26 @@ public class BillWriter {
         this.fetchProducts(orders);
     }
     public void fetchProducts(ArrayList<Integer> orders) {
+        Product currentProduct;
         for (int orderID: orders) {
-            this.products.add(GetProduct.getProduct(orderID));
+            try {
+                currentProduct = GetProduct.getProduct(orderID);
+                this.products.add(currentProduct);
+            } catch (ProductUnavailableException pue) {
+                System.out.println("Product with ID " + orderID + " Unavailable. Taking Next");
+            }
         }
     }
     public String toString() {
+        if (this.products.size() == 0) {
+            return "No Valid Product for Billing.";
+        }
         int count = 1;
         AsciiTable at = new AsciiTable();
         at.addRule();
         AT_Row invoiceTitle = at.addRow(null, null, "INVOICE FOR " + this.userID);
         invoiceTitle.setTextAlignment(TextAlignment.CENTER);
+        at.addRow(null, null, DateTimeHelper.getCurrentDate());
         at.addRule();
         at.addRow("S.N0", "Description", "Price");
         at.addRule();

@@ -1,9 +1,9 @@
 package Exceptions;
 
-public class InvalidCreditCard extends Exception {
+public class InvalidCreditCardNumberException extends Exception {
     private final String errorMessage;
 
-    public InvalidCreditCard(String errorMessage) {
+    public InvalidCreditCardNumberException(String errorMessage) {
         super(errorMessage);
         this.errorMessage = errorMessage;
     }

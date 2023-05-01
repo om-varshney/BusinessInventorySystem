@@ -1,9 +1,9 @@
 package Exceptions;
 
-public class UnauthenticatedUser extends Exception {
+public class ProductUnavailableException extends Exception {
     private final String errorMessage;
 
-    public UnauthenticatedUser(String errorMessage) {
+    public ProductUnavailableException(String errorMessage) {
         super(errorMessage);
         this.errorMessage = errorMessage;
     }

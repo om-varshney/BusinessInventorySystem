@@ -1,5 +1,6 @@
 import Admin.AdminView;
 import Helpers.Billing.BillWriter;
+import Helpers.GetProduct;
 import Helpers.Menus.AdminMenu;
 import Helpers.Menus.BillingMenu;
 import Helpers.Menus.LoginMenu;
@@ -17,7 +18,6 @@ public class Shop {
     private final LoginMenu lm = new LoginMenu();
     private final MainMenu mm = new MainMenu();
     private final BillingMenu bm = new BillingMenu();
-    private BillWriter bw;
     private final AdminMenu am = new AdminMenu();
     private final AdminView av = new AdminView();
     private final Scanner sc = new Scanner(System.in);
@@ -67,7 +67,7 @@ public class Shop {
                 }
                 case 2 -> {
                     System.out.println("Here is a list of all our products");
-                    Product.displayAllProducts();
+                    GetProduct.displayAllProducts();
                 }
                 case 3 -> {
                     Billing billingMethod = new COD();
@@ -111,18 +111,18 @@ public class Shop {
                                 currentLoggedUser
                         );
                         double bill = order.calculateBill();
-                        bw = new BillWriter(userID, intList, bill, billingMethod);
+                        BillWriter bw = new BillWriter(userID, intList, bill, billingMethod);
                         System.out.println(bw);
                     }
                 }
                 case 4 -> {
-                    System.out.println("Welcome to Admin View");
                     System.out.print("Enter Admin Password: ");
                     String password = sc.nextLine();
                     if (!password.equals("Admin123")) {
                         System.out.println("Sorry You do not have Clearance");
                         break;
                     }
+                    System.out.println("Welcome to Admin View");
                     System.out.println(am);
                     int amChoice = am.getChoice();
                     switch (amChoice) {
