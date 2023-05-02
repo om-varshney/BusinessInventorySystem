@@ -3,6 +3,7 @@ package Helpers.Billing;
 import Exceptions.ProductUnavailableException;
 import Helpers.DateTimeHelper;
 import Helpers.GetProduct;
+import Helpers.PrettyPrint;
 import Interfaces.Billing;
 import Product.Product;
 import de.vandermeer.asciitable.AT_Row;
@@ -36,7 +37,7 @@ public class BillWriter {
     }
     public String toString() {
         if (this.products.size() == 0) {
-            return "No Valid Product for Billing.";
+            return PrettyPrint.printErrorMessage("No Valid Product for Billing.");
         }
         int count = 1;
         AsciiTable at = new AsciiTable();

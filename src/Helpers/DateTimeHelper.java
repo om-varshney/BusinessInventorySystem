@@ -1,17 +1,19 @@
 package Helpers;
 
-import java.time.LocalDate;
+import org.jetbrains.annotations.NotNull;
+
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class DateTimeHelper {
-    public static String getCurrentDate() {
+    public static @NotNull String getCurrentDate() {
         // get the current date
-        LocalDate currentDate = LocalDate.now();
+        LocalDateTime currentDateTime = LocalDateTime.now();
 
         // format the date as per requirement
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
         // return the formatted date
-        return currentDate.format(formatter);
+        return currentDateTime.format(formatter);
     }
 }
