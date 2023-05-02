@@ -30,7 +30,7 @@ public class BillWriter {
                 currentProduct = GetProduct.getProduct(orderID);
                 this.products.add(currentProduct);
             } catch (ProductUnavailableException pue) {
-                System.out.println("Product with ID " + orderID + " Unavailable. Taking Next");
+                assert true;
             }
         }
     }

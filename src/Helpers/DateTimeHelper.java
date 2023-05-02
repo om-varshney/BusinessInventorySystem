@@ -9,7 +9,7 @@ public class DateTimeHelper {
         LocalDate currentDate = LocalDate.now();
 
         // format the date as per requirement
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
         // return the formatted date
         return currentDate.format(formatter);

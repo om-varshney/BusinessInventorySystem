@@ -1,5 +1,6 @@
 import Exceptions.ProductUnavailableException;
 import Helpers.GetProduct;
+import Helpers.PrettyPrint;
 import Interfaces.Billing;
 import Product.*;
 
@@ -25,7 +26,7 @@ public class Order {
                 currentProduct = GetProduct.getProduct(orderID);
                 this.products.add(currentProduct);
             } catch (ProductUnavailableException pue) {
-                System.out.println("Product with ID " + orderID + " Unavailable. Taking Next");
+                System.out.println(PrettyPrint.printErrorMessage("Product with ID " + orderID + " Unavailable. Taking Next."));
             }
         }
     }

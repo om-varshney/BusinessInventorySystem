@@ -82,7 +82,7 @@ public class Shop {
                         try {
                             intList.add(Integer.parseInt(s.trim()));
                         } catch (NumberFormatException e) {
-                            System.out.println("Error: Invalid input.");
+                            System.out.println(PrettyPrint.printErrorMessage("Invalid Product ID encountered. Checking Next."));
                         }
                     }
                     if (intList.size() > 0) {
@@ -103,7 +103,6 @@ public class Shop {
                                     System.out.println(PrettyPrint.printErrorMessage("Payment Aborted. Payment method could not be validated"));
                                     continue;
                                 }
-
                             }
                             case 3 -> {
                                 System.out.print("Enter Account Number: ");
@@ -125,7 +124,7 @@ public class Shop {
                                 currentLoggedUser
                         );
                         double bill = order.calculateBill();
-                        BillWriter bw = new BillWriter(userID, intList, bill, billingMethod);
+                        BillWriter bw = new BillWriter(currentLoggedUser, intList, bill, billingMethod);
                         System.out.println(bw);
                     }
                 }

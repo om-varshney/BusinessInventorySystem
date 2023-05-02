@@ -24,6 +24,13 @@ public class GetProduct {
                     "root",
                     "om2516"
             );
+            Statement statement = connection.createStatement();
+            ResultSet cs = statement.executeQuery("SELECT COUNT(*) FROM orders");
+            cs.next();
+            int count = cs.getInt(1);
+            if (productID < 0 | productID > count) {
+                throw new ProductUnavailableException("Invalid Product ID");
+            }
             PreparedStatement pstmt = connection.prepareStatement("SELECT * FROM products WHERE productID = ?");
             pstmt.setInt(1, productID);
             ResultSet rs = pstmt.executeQuery();
