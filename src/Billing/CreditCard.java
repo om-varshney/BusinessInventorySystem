@@ -7,22 +7,18 @@ import Product.Product;
 
 import java.util.Objects;
 
-public record CreditCard(String cardNumber) implements Billing {
-    public CreditCard(String cardNumber) {
+public final class CreditCard implements Billing {
+    private final String cardNumber;
+
+    public CreditCard(String cardNumber) throws InvalidCreditCardNumberException {
         this.cardNumber = cardNumber;
-        try {
-            Validator.validateCreditCardNumber(cardNumber);
-        } catch (InvalidCreditCardNumberException invCred) {
-            System.out.println(invCred.getMessage());
-        }
+        Validator.validateCreditCardNumber(cardNumber);
     }
 
     @Override
     public double payableAmount(Product product) {
-        // Discount is applicable for credit cards.
         double price = product.getProductPrice();
-        double discount = 0.23;
-        return price + price * product.getTaxPercentage() + price * product.getShippingCost() - discount * price;
+        return price + price * product.getTaxPercentage() + price * product.getShippingCost();
     }
 
     @Override
@@ -53,5 +49,16 @@ public record CreditCard(String cardNumber) implements Billing {
         return "CreditCard[" +
                 "cardNumber=" + cardNumber + ']';
     }
+
+    @Override
+    public String cardNumber() {
+        return cardNumber;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cardNumber);
+    }
+
 
 }

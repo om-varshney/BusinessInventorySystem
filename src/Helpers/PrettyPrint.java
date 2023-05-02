@@ -1,5 +1,8 @@
 package Helpers;
 
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
+
 public class PrettyPrint {
     public static final String ANSI_BLACK_BACKGROUND = "\u001B[40m";
     public static final String ANSI_RED_BACKGROUND = "\u001B[41m";
@@ -19,15 +22,18 @@ public class PrettyPrint {
     public static final String ANSI_CYAN = "\u001B[36m";
     public static final String ANSI_WHITE = "\u001B[37m";
 
-    public static String printRedBack(String str) {
-        return ANSI_RED_BACKGROUND + str + ANSI_RESET;
+    @Contract(pure = true)
+    public static @NotNull String printErrorMessage(String str) {
+        return ANSI_RED + ">>> " + str + " " + ANSI_RESET;
     }
 
-    public static String printGreenBack(String str) {
-        return ANSI_GREEN_BACKGROUND + str + ANSI_RESET;
+    @Contract(pure = true)
+    public static @NotNull String printSuccessMessage(String str) {
+        return  ANSI_GREEN_BACKGROUND + ANSI_BLACK + " " + str + " " + ANSI_RESET;
     }
 
-    public static String printPurpleBack(String str) {
-        return ANSI_PURPLE_BACKGROUND + str + ANSI_RESET;
+    @Contract(pure = true)
+    public static @NotNull String printInfoMessage(String str) {
+        return  ANSI_PURPLE_BACKGROUND + " " + str + " " + ANSI_RESET;
     }
 }

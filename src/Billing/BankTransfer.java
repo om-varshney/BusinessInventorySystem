@@ -8,23 +8,22 @@ import Product.Product;
 
 import java.util.Objects;
 
-public record BankTransfer(String accountNumber, String IFSCCode) implements Billing {
-    public BankTransfer(String accountNumber, String IFSCCode) {
+public final class BankTransfer implements Billing {
+    private final String accountNumber;
+    private final String IFSCCode;
+
+    public BankTransfer(String accountNumber, String IFSCCode) throws InvalidIFSCCodeException, InvalidAccountNumberException {
         this.accountNumber = accountNumber;
         this.IFSCCode = IFSCCode;
-        try {
-            Validator.validateAccountNumber(accountNumber);
-            Validator.validateIFSCCode(IFSCCode);
-        } catch (InvalidAccountNumberException | InvalidIFSCCodeException invCred) {
-            System.out.println(invCred.getMessage());
-        }
+        Validator.validateAccountNumber(accountNumber);
+        Validator.validateIFSCCode(IFSCCode);
     }
 
     @Override
     public double payableAmount(Product product) {
         // No delivery charges for Bank Transfer.
         double price = product.getProductPrice();
-        return price + price * product.getTaxPercentage();
+        return price + price * product.getTaxPercentage() + price * product.getShippingCost();
     }
 
     @Override
@@ -52,5 +51,21 @@ public record BankTransfer(String accountNumber, String IFSCCode) implements Bil
                 "accountNumber=" + accountNumber + ", " +
                 "IFSCCode=" + IFSCCode + ']';
     }
+
+    @Override
+    public String accountNumber() {
+        return accountNumber;
+    }
+
+    @Override
+    public String IFSCCode() {
+        return IFSCCode;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(accountNumber, IFSCCode);
+    }
+
 
 }

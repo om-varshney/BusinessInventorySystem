@@ -1,12 +1,15 @@
 import Admin.AdminView;
+import Exceptions.InvalidAccountNumberException;
+import Exceptions.InvalidCreditCardNumberException;
+import Exceptions.InvalidIFSCCodeException;
 import Helpers.Billing.BillWriter;
 import Helpers.GetProduct;
 import Helpers.Menus.AdminMenu;
 import Helpers.Menus.BillingMenu;
 import Helpers.Menus.LoginMenu;
 import Helpers.Menus.MainMenu;
+import Helpers.PrettyPrint;
 import Interfaces.Billing;
-import Product.Product;
 import Billing.COD;
 import Billing.CreditCard;
 import Billing.BankTransfer;
@@ -93,16 +96,27 @@ public class Shop {
                             case 2 -> {
                                 System.out.print("Enter Credit Card Number: ");
                                 String ccNumber = sc.nextLine();
-                                billingMethod = new CreditCard(ccNumber);
-                                System.out.println("Credit Card Payment Set");
+                                try {
+                                    billingMethod = new CreditCard(ccNumber);
+                                    System.out.println("Credit Card Payment Set");
+                                } catch (InvalidCreditCardNumberException invCred) {
+                                    System.out.println(PrettyPrint.printErrorMessage("Payment Aborted. Payment method could not be validated"));
+                                    continue;
+                                }
+
                             }
                             case 3 -> {
                                 System.out.print("Enter Account Number: ");
                                 String accNumber = sc.nextLine();
                                 System.out.print("Enter IFSC Code: ");
                                 String IFSCCode = sc.nextLine();
-                                billingMethod = new BankTransfer(accNumber, IFSCCode);
-                                System.out.println("Bank Transfer Payment Set");
+                                try {
+                                    billingMethod = new BankTransfer(accNumber, IFSCCode);
+                                    System.out.println("Bank Transfer Payment Set");
+                                } catch(InvalidAccountNumberException | InvalidIFSCCodeException invCred) {
+                                    System.out.println(PrettyPrint.printErrorMessage("Payment Aborted. Payment method could not be validated"));
+                                    continue;
+                                }
                             }
                         }
                         Order order = new Order(
@@ -119,25 +133,44 @@ public class Shop {
                     System.out.print("Enter Admin Password: ");
                     String password = sc.nextLine();
                     if (!password.equals("Admin123")) {
-                        System.out.println("Sorry You do not have Clearance");
+                        System.out.println(PrettyPrint.printErrorMessage("Sorry You do not have Clearance"));
                         break;
                     }
-                    System.out.println("Welcome to Admin View");
+                    System.out.println(PrettyPrint.printSuccessMessage("Welcome to Admin View"));
                     System.out.println(am);
                     int amChoice = am.getChoice();
                     switch (amChoice) {
                         case 1 -> {
+                            System.out.println("Here is a list of all customers");
+                            av.viewCustomerDetails();
+                        }
+                        case 2 -> {
                             System.out.println("Here is a list of All orders");
                             av.viewOrders();
                         }
-                        case 2 -> {
+                        case 3 -> {
                             System.out.println("Here is a list of Critical Products");
                             av.viewCriticalProducts();
+                        }
+                        case 4 -> {
+                            System.out.print("By What amount would you like to replenish the inventory: ");
+                            try {
+                                int amount = sc.nextInt();
+                                int replenished = av.replenishCriticalProducts(amount);
+                                if (replenished > 0) {
+                                    System.out.println(PrettyPrint.printSuccessMessage(replenished + " Products Added."));
+                                } else {
+                                    System.out.println("No Products found in critical condition.");
+                                }
+                            } catch (NumberFormatException ne) {
+                                System.out.println(PrettyPrint.printErrorMessage("Enter valid number!"));
+                            }
+
                         }
                     }
                 }
                 case 5 -> {
-                    System.out.println("Thank-you for Visiting");
+                    System.out.println(PrettyPrint.printInfoMessage("Thank-you for Visiting"));
                     return;
                 }
             }
@@ -146,7 +179,6 @@ public class Shop {
 
     public void go() {
         int userID = this.authenticate();
-        System.out.println("Welcome ID: " + userID);
         this.mainLoop(userID);
     }
 }

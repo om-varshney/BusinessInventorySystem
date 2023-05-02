@@ -10,7 +10,6 @@ import de.vandermeer.asciitable.AsciiTable;
 import de.vandermeer.skb.interfaces.transformers.textformat.TextAlignment;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Objects;
 
 public class BillWriter {
@@ -42,26 +41,37 @@ public class BillWriter {
         int count = 1;
         AsciiTable at = new AsciiTable();
         at.addRule();
-        AT_Row invoiceTitle = at.addRow(null, null, "INVOICE FOR " + this.userID);
+        AT_Row invoiceTitle = at.addRow(null, null, null, null, "BUSINESS INVENTORY SYSTEM");
         invoiceTitle.setTextAlignment(TextAlignment.CENTER);
-        at.addRow(null, null, DateTimeHelper.getCurrentDate());
         at.addRule();
-        at.addRow("S.N0", "Description", "Price");
+        AT_Row invoiceSubTitle = at.addRow(null, null, null, null, "INVOICE FOR USER ID: " + this.userID);
+        invoiceSubTitle.setTextAlignment(TextAlignment.CENTER);
+        at.addRow(null, null, null, null, DateTimeHelper.getCurrentDate());
+        at.addRule();
+        at.addRow("S.N0", "Description", "Price", "Shipping Cost", "Tax");
         at.addRule();
         for (Product product: this.products) {
-            at.addRow(count, product.getProductName(), product.getProductPrice());
+            at.addRow(
+                    count,
+                    product.getProductName(),
+                    product.getProductPrice(),
+                    Math.round(product.getProductPrice() * product.getShippingCost()),
+                    Math.round(product.getProductPrice() * product.getTaxPercentage())
+            );
             at.addRule();
             count++;
         }
-        at.addRow(null, null, "Total Bill = " + this.totalBill);
+        at.addRow(null, null, null, null, "Total Bill = " + Math.round(this.totalBill));
         at.addRule();
-        AT_Row paymentHeader = at.addRow(null, null, "Payment Information: ");
+        AT_Row paymentHeader = at.addRow(null, null, null, null, "Payment Information: ");
         paymentHeader.setTextAlignment(TextAlignment.CENTER);
         at.addRule();
-        at.addRow("CC No.", "Bank Account No.", "IFSC CODE");
+        at.addRow(null, "CC No.", null, "Bank Account No.", "IFSC CODE");
         at.addRule();
         at.addRow(
+                null,
                 Objects.requireNonNullElse(this.billingService.cardNumber(), "NA"),
+                null,
                 Objects.requireNonNullElse(this.billingService.accountNumber(), "NA"),
                 Objects.requireNonNullElse(this.billingService.IFSCCode(), "NA")
         );

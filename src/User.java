@@ -1,3 +1,5 @@
+import Helpers.PrettyPrint;
+
 import java.sql.*;
 
 public class User {
@@ -25,16 +27,14 @@ public class User {
                 passwd = resultSet.getString("password");
                 userID = resultSet.getInt("userID");
                 if (username.equals(userName) && passwd.equals(password)) {
-                    resultSet.close();
-                    statement.close();
-                    connection.close();
+                    System.out.println(PrettyPrint.printSuccessMessage("Welcome " + userName));
                     return userID;
                 }
             }
         } catch (ClassNotFoundException | SQLException cnf) {
             System.out.println(cnf.getMessage());
         }
-        System.out.println("Login Unsuccessful!");
+        System.out.println(PrettyPrint.printErrorMessage("Login Unsuccessful!"));
         return 0;
     }
 

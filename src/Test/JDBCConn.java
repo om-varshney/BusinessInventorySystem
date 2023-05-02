@@ -10,7 +10,7 @@ public class JDBCConn {
             connection = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/scirev",
                     "root",
-                    "om2516"
+                    "password"
             );
             Statement statement;
             statement = connection.createStatement();
