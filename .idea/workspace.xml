@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="622b2e2d-2fcd-4b77-b5e8-1d5a9300f7b6" name="Changes" comment="Bugs Resolved in Project. Billing improved.">
+    <list default="true" id="622b2e2d-2fcd-4b77-b5e8-1d5a9300f7b6" name="Changes" comment="Minor Changes and Outputs Added.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Helpers/Billing/BillWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Helpers/Billing/BillWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Helpers/DateTimeHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Helpers/DateTimeHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Helpers/Validation/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Helpers/Validation/Validator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +104,7 @@
       <workItem from="1682784318025" duration="38472000" />
       <workItem from="1682912579056" duration="25757000" />
       <workItem from="1682957927332" duration="666000" />
-      <workItem from="1682962087641" duration="11849000" />
+      <workItem from="1682962087641" duration="12863000" />
     </task>
     <task id="LOCAL-00001" summary="Java Project Init">
       <created>1682784737512</created>
@@ -305,7 +302,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683018260042</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Minor Changes and Outputs Added.">
+      <created>1683031054906</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1683031054906</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -323,7 +327,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Stub classes for Products created." />
     <MESSAGE value="Billing Stub classes created." />
     <MESSAGE value="User Stub Created." />
     <MESSAGE value="Order Stub Created." />
@@ -348,7 +351,8 @@
     <MESSAGE value="Improvements and Corrections added. Custom exceptions added." />
     <MESSAGE value="Miscellaneous Improvements Made to project." />
     <MESSAGE value="Bugs Resolved in Project. Billing improved." />
-    <option name="LAST_COMMIT_MESSAGE" value="Bugs Resolved in Project. Billing improved." />
+    <MESSAGE value="Minor Changes and Outputs Added." />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor Changes and Outputs Added." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
