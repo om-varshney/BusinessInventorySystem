@@ -15,6 +15,7 @@ import Billing.CreditCard;
 import Billing.BankTransfer;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Shop {
@@ -54,6 +55,10 @@ public class Shop {
                     int distance = sc.nextInt();
                     User user = new User(userName, password, phoneNumber, email, distance);
                     userID = user.signup();
+                }
+                case 3 -> {
+                    System.out.println(PrettyPrint.printInfoMessage("Thank-you for Visiting"));
+                    System.exit(0);
                 }
             }}
         return userID;
@@ -117,6 +122,10 @@ public class Shop {
                                     continue;
                                 }
                             }
+                            case 4 -> {
+                                System.out.println(PrettyPrint.printInfoMessage("Transaction Cancelled. We're sorry to see you go :/"));
+                                continue;
+                            }
                         }
                         Order order = new Order(
                                 intList,
@@ -136,35 +145,41 @@ public class Shop {
                         break;
                     }
                     System.out.println(PrettyPrint.printSuccessMessage("Welcome to Admin View"));
-                    System.out.println(am);
-                    int amChoice = am.getChoice();
-                    switch (amChoice) {
-                        case 1 -> {
-                            System.out.println("Here is a list of all customers");
-                            av.viewCustomerDetails();
-                        }
-                        case 2 -> {
-                            System.out.println("Here is a list of All orders");
-                            av.viewOrders();
-                        }
-                        case 3 -> {
-                            System.out.println("Here is a list of Critical Products");
-                            av.viewCriticalProducts();
-                        }
-                        case 4 -> {
-                            System.out.print("By What amount would you like to replenish the inventory: ");
-                            try {
-                                int amount = sc.nextInt();
-                                int replenished = av.replenishCriticalProducts(amount);
-                                if (replenished > 0) {
-                                    System.out.println(PrettyPrint.printSuccessMessage(replenished + " Products Added."));
-                                } else {
-                                    System.out.println("No Products found in critical condition.");
-                                }
-                            } catch (NumberFormatException ne) {
-                                System.out.println(PrettyPrint.printErrorMessage("Enter valid number!"));
+                    int amChoice = 0;
+                    while (amChoice != 5) {
+                        System.out.println(am);
+                        amChoice = am.getChoice();
+                        switch (amChoice) {
+                            case 1 -> {
+                                System.out.println("Here is a list of all customers");
+                                av.viewCustomerDetails();
                             }
+                            case 2 -> {
+                                System.out.println("Here is a list of All orders");
+                                av.viewOrders();
+                            }
+                            case 3 -> {
+                                System.out.println("Here is a list of Critical Products");
+                                av.viewCriticalProducts();
+                            }
+                            case 4 -> {
+                                System.out.print("By What amount would you like to replenish the inventory: ");
+                                try {
+                                    int amount = sc.nextInt();
+                                    int replenished = av.replenishCriticalProducts(amount);
+                                    if (replenished > 0) {
+                                        System.out.println(PrettyPrint.printSuccessMessage(replenished + " Products Added."));
+                                    } else {
+                                        System.out.println("No Products found in critical condition.");
+                                    }
+                                } catch (InputMismatchException ime) {
+                                    System.out.println(PrettyPrint.printErrorMessage("Enter valid number!"));
+                                }
 
+                            }
+                            case 5 -> {
+                                System.out.println(PrettyPrint.printInfoMessage("Admin Logged out securely."));
+                            }
                         }
                     }
                 }

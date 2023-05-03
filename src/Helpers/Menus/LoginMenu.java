@@ -5,5 +5,6 @@ public class LoginMenu extends Menu {
         setName("Login Menu");
         addOption("Login");
         addOption("Signup");
+        addOption("Exit");
     }
 }

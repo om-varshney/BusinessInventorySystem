@@ -7,5 +7,6 @@ public class AdminMenu extends Menu {
         addOption("View Orders");
         addOption("View Critical Products");
         addOption("Replenish Critical Products");
+        addOption("Exit");
     }
 }
